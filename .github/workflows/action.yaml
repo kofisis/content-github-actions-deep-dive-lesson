@@ -1,0 +1,24 @@
+name: Deploy a lambda function
+
+on: 
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name:
+        uses: actions/checkout@v2
+      - name: configure python on runner
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+      - name: install required libraries
+        run: 
+          cd function
+          python -m pip install --upgrade pip
+          if [-f requirements.txt]; then pip install -r requirements.txt -t .; fi
+
+
