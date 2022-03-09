@@ -23,12 +23,12 @@ jobs:
       - name: create a zipped bundle
         run: |
             cd function
-            zip -r ../$({ github.sha }).zip .
+            zip -r ../${{ github.sha }}.zip .
       - name: upload/archive artifact
         uses: actions/upload-artifact@v2
         with:
           name: zipped-bundle
-          path: $({ github.sha }).zip
+          path: ${{ github.sha }}.zip
 
 
 
