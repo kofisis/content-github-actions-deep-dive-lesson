@@ -73,3 +73,6 @@ jobs:
             asset_path: ./${{ github.sha }}.zip
             asset_name: source_code_with_libraries.zip
             asset_content_type: app/zip
+
+  # next thing to do is to upload the bundled code with it's libraries to an s3 bucket we've created
+  # and then deploy the code in s3 to a lambda function created in aws
